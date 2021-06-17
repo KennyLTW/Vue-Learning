@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>vue ch02</title>
+  </head>
+  <body>
+    <div id="app">
+        {{ message }}
+        {{ obj.age }}
+    </div>
+  </body>
+  <script>
+    //create a new Vue object
+    var app = new Vue({
+    //element (div id="app")
+      el: "#app",
+      data: {
+        message: "Hello Vue!",
+        obj: {
+            name: "abc",
+            age: 18,
+        }
+
+      },
+    });
+  </script>
+</html>

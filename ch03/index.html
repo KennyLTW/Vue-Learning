@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>vue ch03</title>
+  </head>
+  <body>
+    <div id="app">
+        {{ a }}
+        {{ b }}
+    </div>
+  </body>
+  <script>
+    var data = {a: 1, b: 100};
+
+    //create a new Vue object
+    var app = new Vue({
+    //element (div id="app")
+      el: "#app",
+      data: data
+    });
+
+//3 ways to modify data value
+    //data.a = "hello vue";
+    //app.a = "bye vue";
+    //app.$data.a = 100;
+
+//watch new value and old value
+//watch data.a
+    app.$watch('a', function(newVal, oldVal){
+      console.log("newVal: " + newVal + " / oldVal: " + oldVal);
+    })
+//watch data.b
+    app.$watch('b', function(newVal, oldVal){
+      console.log("newVal: " + newVal + " / oldVal: " + oldVal);
+    })
+
+    app.$data.a = "test";
+    //if data.? has no change, it will not show consloe.log message
+    
+  </script>
+</html>
