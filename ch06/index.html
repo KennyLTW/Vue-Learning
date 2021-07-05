@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>vue ch06</title>
+  </head>
+  <body>
+    <!-- v-once: div id="app" 只執行一次-->
+    <div id="app">
+      <p v-if="seen">现在你看到我了</p>
+      <a v-bind:href="url">...</a>
+      <div @click="click1">
+        <div @click.stop="click2">
+          <!-- if add .stop, it run click2() once only. else it will run click2() -> click1() -->
+          click me
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: "#app",
+      data: {
+        seen: false,
+        url: "https://learning.dcloud.io/#/?vid=6",
+      },
+      methods: {
+        click1: function() {
+          console.log("click 1");
+        },
+        click2: function() {
+          console.log("click 2");
+        }
+      }
+    });  
+  </script>
+</html>

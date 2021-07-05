@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>vue ch12</title>
+  </head>
+  <body>
+    <div id="app">
+      <button-counter title='abc' @clicknow="clicknow"></button-counter>
+      <button-counter title='200'>
+        <h2>hi h2</h2>
+      </button-counter>
+      <button-counter></button-counter>
+    </div>
+  </body>
+  <script type="text/javascript">
+// 定义一个名为 button-counter 的新组件
+Vue.component('button-counter', {
+  props: ['title'],
+  data: function () {
+    return {
+      count: 0
+    }
+  },
+  template: '<div><h1>123</h1><button v-on:click="clickfun">{{title}} You clicked me {{ count }} times.</button><slot></slot></div>',
+  methods: {
+    clickfun: function() {
+      this.count ++;
+      this.$emit('clicknow', this.count);
+    }
+  },
+})
+
+    var app = new Vue({
+      el: "#app",
+      data: {
+
+      },
+      methods: {
+        clicknow: function(e) {
+          console.log(e);
+        }
+      }
+    });
+  </script>
+  <style>
+
+  </style>
+</html>

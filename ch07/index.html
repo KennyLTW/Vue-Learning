@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <title>vue ch07</title>
+  </head>
+  <body>
+    <div id="app">
+      <div
+        class="test"
+        v-bind:class="[ isActive? 'active' : '' , isGreen? 'green' : '' ]"
+        style="
+          width: 200px;
+          height: 200px;
+          text-align: center;
+          line-height: 200px;
+        "
+      >
+        hi vue
+      </div>
+      <div :style="{color : color, fontSize : size, background: isRed? '#FF0000': ''}">
+        123
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: "#app",
+      data: {
+        isActive: true,
+        isGreen: true,
+        color: "#FF0000",
+        size: '50px',
+        isRed: true,
+      },
+    });
+  </script>
+  <style>
+    .active {
+      background-color: royalblue;
+    }
+    .test {
+      font-size: 30px;
+    }
+    .green {
+      color: green;
+    }
+  </style>
+</html>
